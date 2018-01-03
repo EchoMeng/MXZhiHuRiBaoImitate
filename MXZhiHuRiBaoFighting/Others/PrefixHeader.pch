@@ -1,0 +1,19 @@
+//
+//  PrefixHeader.pch
+//  MXZhiHuRiBaoFighting
+//
+//  Created by mac on 2017/12/22.
+//  Copyright © 2017年 mac. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+//屏幕尺寸
+#define kScreenBounds [UIScreen mainScreen].bounds
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+
+//导入frame文件
+#import "UIView+MXFrame.h"
+#endif /* PrefixHeader_pch */

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MXLeftHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="99"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JiL-98-njc">
+                    <rect key="frame" x="10" y="66" width="105" height="23"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <state key="normal" title="  我的收藏" image="Fav_icon">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NB5-kL-WrM">
+                    <rect key="frame" x="182" y="66" width="108" height="23"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <state key="normal" title="  离线下载" image="News_Picture_Save">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7DF-SE-xyF">
+                    <rect key="frame" x="10" y="25" width="71" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="  请登录">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="loginBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="6oH-3l-x5S"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.13725490196078433" green="0.56862745098039214" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="NB5-kL-WrM" secondAttribute="bottom" constant="10" id="7bQ-0R-BYd"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="JiL-98-njc" secondAttribute="bottom" constant="10" id="Mf8-8I-Gzd"/>
+                <constraint firstItem="JiL-98-njc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="Mzn-Mx-WCe"/>
+                <constraint firstItem="7DF-SE-xyF" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="25" id="ZLL-8C-eUN"/>
+                <constraint firstItem="7DF-SE-xyF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="dSR-4v-7j2"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="NB5-kL-WrM" secondAttribute="trailing" constant="10" id="f3j-Ht-1Ya"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="loginButton" destination="7DF-SE-xyF" id="DtX-Cy-BqL"/>
+            </connections>
+            <point key="canvasLocation" x="2" y="-188.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Fav_icon" width="17" height="16"/>
+        <image name="News_Picture_Save" width="20" height="20"/>
+    </resources>
+</document>
