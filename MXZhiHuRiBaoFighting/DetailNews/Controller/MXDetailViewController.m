@@ -36,9 +36,13 @@ static CGFloat const headHeight = 188;
     return _webView;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.webView.scrollView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setHeaderView];
 }
 
 - (void)setID:(NSString *)ID {
@@ -57,9 +61,10 @@ static CGFloat const headHeight = 188;
     titleLabel.numberOfLines = 0;
     CGFloat margin = 20;
     titleLabel.mx_x = margin;
-    titleLabel.mx_y = 130;
+    titleLabel.mx_y = headerImageView.mx_y + headHeight - 50;
     titleLabel.mx_width = kScreenWidth - 2 * margin;
     titleLabel.mx_height = 50;
+    [titleLabel setTextColor:[UIColor whiteColor]];
     [headerImageView addSubview:titleLabel];
     self.titleLabel = titleLabel;
 }
@@ -72,9 +77,14 @@ static CGFloat const headHeight = 188;
         MXDetailItem *detailData = [MXDetailItem mj_objectWithKeyValues:responseObject];
         detailData.htmlUrl = [NSString stringWithFormat:@"<html><head><link rel=\"stylesheet\" href=%@></head><body>%@</body></html>",detailData.css[0],detailData.body];
         self.detailData = detailData;
-        [self.headerImageView sd_setImageWithURL:[NSURL URLWithString:detailData.image]];
-        self.titleLabel.text = detailData.title;
-        [self.webView loadHTMLString:self.detailData.htmlUrl baseURL:nil];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (detailData.image) {
+                [self setHeaderView];
+                [self.headerImageView sd_setImageWithURL:[NSURL URLWithString:detailData.image]];
+            }
+            self.titleLabel.text = detailData.title;
+            [self.webView loadHTMLString:self.detailData.htmlUrl baseURL:nil];
+        });
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];

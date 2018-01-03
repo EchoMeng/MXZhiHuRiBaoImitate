@@ -85,7 +85,6 @@ static NSString * const ID = @"MXStoryTableViewCell";
 - (void)loadLastestData {
     NSString *themeURL = [NSString stringWithFormat:@"https://news-at.zhihu.com/api/4/theme/%@",self.theme.ID];
     [self.manager GET:themeURL parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        [responseObject writeToFile:@"/Users/mac/Desktop/themeArray.plist" atomically:YES];
         MXThemeSet *themeSet = [MXThemeSet mj_objectWithKeyValues:responseObject];
         [self.dataArray addObject:themeSet];
         [self.tableView reloadData];
@@ -151,12 +150,6 @@ static NSString * const ID = @"MXStoryTableViewCell";
     collectionViewController.rowNumber = storiesData.stories.count;
     collectionViewController.currentPage = indexPath.row;
     [self.navigationController pushViewController:collectionViewController animated:YES];
-    
-//    MXDetailViewController *detailViewController = [[MXDetailViewController alloc]init];
-//    MXThemeSet *themeSet = self.dataArray[indexPath.section];
-//    MXStroy *story = themeSet.stories[indexPath.row];
-//    detailViewController.ID = story.ID;
-//    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 @end
